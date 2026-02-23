@@ -1,0 +1,122 @@
+:root {
+    --primary: #00d4ff;
+    --bg: #0a0a0c;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    overflow: hidden; /* Evita scroll durante o loader */
+}
+
+/* Loader Styles */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, #1a1a1e 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+#countdown {
+    font-size: 8rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-shadow: 0 0 20px var(--primary);
+    animation: pulse 1s infinite;
+}
+
+/* Main Content Styles */
+#main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#main-content.visible {
+    opacity: 1;
+    overflow-y: auto;
+}
+
+.hidden { display: none; }
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 2rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.logo span { color: var(--primary); }
+
+/* Cards de Avisos */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.tag {
+    background: var(--primary);
+    color: black;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.tag.alert { background: #ff4757; color: white; }
+
+.date {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.fade-up {
+    animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
